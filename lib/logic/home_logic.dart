@@ -18,6 +18,16 @@ class HomeLogic {
     }
   }
 
+  void getHeadlinesNews(Map<String, dynamic> params) async {
+    try {
+      List<NewsModel> headlineNewsList =
+          await _newsApi.getHeadlinesNews(params);
+      _newsController.sink.add(headlineNewsList);
+    } catch (e) {
+      throw e;
+    }
+  }
+
   void dispose() {
     _newsController.close();
   }

@@ -34,6 +34,13 @@ class _HomePageState extends State<HomePage> {
       "apiKey": Endpoints.key
     };
     _homeLogic.getNews(params);
+
+    var paramHeadlines = {
+      "country": "us",
+      "category": "",
+      "apiKey": Endpoints.key
+    };
+    _homeLogic.getHeadlinesNews(paramHeadlines);
   }
 
   void onTapLatestCat(String data) {
@@ -67,7 +74,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          padding: const EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 10),
+          padding:
+              const EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 10),
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
